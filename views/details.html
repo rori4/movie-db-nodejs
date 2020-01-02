@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Movie DataBase - Details</title>
+		<link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+		<link rel="icon" type="image/x-icon" href="/public/images/favicon.ico" />
+	</head>
+
+	<body>
+		<header>
+			<div class="inner">
+				<nav>
+					<a href="/" class="logo"
+						><img class="logo" src="/public/images/logo.png" alt="logo"
+					/></a>
+					<input type="checkbox" id="nav" /><label for="nav"></label>
+					<ul>
+						<li><a href="/addMovie">Add Movie</a></li>
+						<li><a href="/viewAllMovies">View All Movies</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="content">
+			{{replaceMe}}
+			<div id="back">
+				<a href="/viewAllMovies">
+					&lt;&lt; Back
+				</a>
+			</div>
+		</div>
+	</body>
+</html>

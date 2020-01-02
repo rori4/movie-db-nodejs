@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Movie DataBase - Add Movie</title>
+		<link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+		<link rel="icon" type="image/x-icon" href="/public/images/favicon.ico" />
+	</head>
+
+	<body>
+		<header>
+			<div class="inner">
+				<nav>
+					<a href="/" class="logo"
+						><img class="logo" src="/public/images/logo.png" alt="logo"
+					/></a>
+					<input type="checkbox" id="nav" /><label for="nav"></label>
+					<ul>
+						<li><a href="/addMovie">Add Movie</a></li>
+						<li><a href="/viewAllMovies">View All Movies</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<h1>Add New Movie</h1>
+		<div class="container">
+			<form action="/addMovie" method="POST">
+				<label for="movieTitle">Title *</label>
+				<input
+					type="text"
+					id="movieTitle"
+					name="movieTitle"
+					placeholder="(e.g. Star Wars: Episode V - The Empire Strikes Back)"
+					required
+				/>
+
+				<label for="movieYear">Year *</label>
+				<input
+					type="text"
+					id="movieYear"
+					name="movieYear"
+					placeholder="(e.g. 1980)"
+					pattern="^\d{4}$"
+					required
+				/>
+
+				<label for="moviePoster">Poster URL *</label>
+				<input
+					type="text"
+					id="moviePoster"
+					name="moviePoster"
+					placeholder="(URL to .jpg, .gif or .png)"
+					pattern="(http(s?)://)(.)*\.(?:jpg|gif|png)"
+					required
+				/>
+
+				<label for="movieDescription">Movie description *</label>
+				<textarea
+					id="movieDescription"
+					name="movieDescription"
+					rows="10"
+					cols="10"
+					required
+				></textarea>
+
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+	</body>
+</html>
