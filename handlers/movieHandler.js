@@ -67,6 +67,37 @@ const movieHandler = (req, res) => {
 			return true
 		}
 	}
+
+	if(req.path.startsWith('/movies/details/') && req.method === 'GET'){
+		fs.readFile('./views/details.html', (err, data) => {
+			if(err){
+				console.log(err)
+				return
+			}
+			fs.readFile('./config/dataBase.json', (err, db) => {
+				if(err){
+					console.log(err)
+					return
+				}
+				const id = req.path.split('/movies/details/')[1]
+				const moviesJSON = JSON.parse(db)
+				const movie = moviesJSON.movies.find(movie =>  movie.id == id)
+				let moviewDetails = `
+				<h2>${movie.movieTitle}</h2>
+				<img src="${movie.moviePoster}" alt="" />
+				<h3> Year: ${movie.movieYear}</h3>
+				<p>${movie.movieDescription}</p>
+				`
+				let responseHTML = data.toString().replace('{{replaceMe}}', moviewDetails)
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+				})
+				res.write(responseHTML)
+				res.end()
+			})
+		})
+		return true
+	}
 }
 
 module.exports = { movieHandler }
